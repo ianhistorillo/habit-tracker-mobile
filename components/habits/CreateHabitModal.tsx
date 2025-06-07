@@ -128,7 +128,10 @@ export default function CreateHabitModal({ onClose }: CreateHabitModalProps) {
         </TouchableOpacity>
       </View>
 
-      <ScrollView style={styles.content}>
+      <ScrollView
+        style={{ flex: 1 }}
+        contentContainerStyle={{ paddingBottom: 20 }}
+      >
         <View style={styles.form}>
           <View style={styles.formGroup}>
             <Text style={styles.label}>Habit Name*</Text>
@@ -328,6 +331,9 @@ const styles = StyleSheet.create({
   },
   closeButton: {
     padding: 4,
+  },
+  scrollContent: {
+    paddingBottom: 20,
   },
   content: {
     flex: 1,

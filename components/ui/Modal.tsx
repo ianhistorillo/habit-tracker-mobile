@@ -45,5 +45,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     overflow: "hidden",
     maxHeight: "90%",
+    flexGrow: 1, // ✅ allow children (like ScrollView) to expand
+    flexShrink: 1,
   },
 });
