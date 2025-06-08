@@ -10,12 +10,13 @@ import { useAuthStore } from "./stores/authStore";
 // Screens
 import TabLayout from "./app/(tabs)/_layout";
 import AuthScreen from "./app/(auth)";
-import Tabs from "./app/(tabs)";
-import Test from "./screens/Test";
 
 import DashboardScreen from "./app/(tabs)";
 import HabitsScreen from "./app/(tabs)/habits";
 import CalendarScreen from "./app/(tabs)/calendar";
+import PlannerScreen from "./app/(tabs)/planner";
+import ReportsScreen from "./app/(tabs)/reports";
+import SettingsScreen from "./app/(tabs)/settings";
 
 // import DashboardScreen from './screens/DashboardScreen';
 // import HabitsScreen from './screens/HabitsScreen';
@@ -79,48 +80,37 @@ function TabNavigator() {
           ),
         }}
       />
-      {/* <Tab.Screen
-        name="Dashboard"
-        component={DashboardScreen}
-        options={{
-          tabBarIcon: ({ color }) => <Home size={24} color={color} />,
-        }}
-      />
       <Tab.Screen
-        name="Habits"
-        component={HabitsScreen}
-        options={{
-          tabBarIcon: ({ color }) => <Activity size={24} color={color} />,
-        }}
-      />
-      <Tab.Screen
-        name="Calendar"
-        component={CalendarScreen}
-        options={{
-          tabBarIcon: ({ color }) => <Calendar size={24} color={color} />,
-        }}
-      />
-      <Tab.Screen
-        name="Planner"
+        name="planner"
         component={PlannerScreen}
         options={{
-          tabBarIcon: ({ color }) => <Target size={24} color={color} />,
+          title: "Planner",
+          tabBarIcon: ({ color, size }) => (
+            <Calendar size={size} color={color} />
+          ),
         }}
       />
+
       <Tab.Screen
-        name="Reports"
+        name="reports"
         component={ReportsScreen}
         options={{
-          tabBarIcon: ({ color }) => <LineChart size={24} color={color} />,
+          title: "Reports",
+          tabBarIcon: ({ color, size }) => (
+            <LineChart size={size} color={color} />
+          ),
         }}
       />
       <Tab.Screen
-        name="Settings"
+        name="settings"
         component={SettingsScreen}
         options={{
-          tabBarIcon: ({ color }) => <Settings size={24} color={color} />,
+          title: "Settings",
+          tabBarIcon: ({ color, size }) => (
+            <Settings size={size} color={color} />
+          ),
         }}
-      /> */}
+      />
     </Tab.Navigator>
   );
 }
@@ -137,10 +127,9 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           {/* <Stack.Screen name="Test" component={Test} /> */}
-          <Stack.Screen name="TabLayout" component={TabLayout} />
+          <Stack.Screen name="Main" component={TabNavigator} />
           <Stack.Screen name="Auth" component={AuthScreen} />
           {/* <Stack.Screen name="Main" component={Tabs} /> */}
-          <Stack.Screen name="Main" component={TabNavigator} />
         </Stack.Navigator>
         <StatusBar style="auto" />
         <Toast />
